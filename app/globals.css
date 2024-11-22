@@ -3,6 +3,9 @@
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-background-card: var(--background-card);
+  --color-background-alternative: var(--background-alternative);
+  --color-foreground-alternative: var(--foreground-alternative);
 }
 
 /*
@@ -41,8 +44,17 @@
 }
 
 :root {
-  --background: #ffffff;
+  /* Color Background */
+  --background: #fcf9ee;
+  --background-alternative: #141414;
+  --background-card: #e7d6c4;
+
+  /* Color Foreground */
   --foreground: #171717;
+  --foreground-alternative: #ededed;
+  --primary: #fcf9ee;
+  --secondary: #ddc92a;
+  --quaternary: #141414;
 }
 
 @media (prefers-color-scheme: dark) {
