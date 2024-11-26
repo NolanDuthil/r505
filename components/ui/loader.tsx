@@ -1,10 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import classNames from 'classnames';
 
 export default function Loader() {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
+  const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -13,22 +15,31 @@ export default function Loader() {
           return prev + 1;
         } else {
           clearInterval(interval);
-          setLoading(false);
-          window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+          setTimeout(() => {
+            setAnimate(true);
+          }, 500);
           return 100;
         }
       });
-    }, 10); // Adjust the interval speed as needed
+    }, 10);
 
     return () => clearInterval(interval);
   }, []);
 
-  if (!loading) {
-    return null;
-  }
+  useEffect(() => {
+    if (progress === 100) {
+      const timeout = setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [progress]);
 
   return (
-    <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-background-alternative z-50">
+    <div className={classNames("fixed top-0 left-0 w-full h-full flex items-center justify-center bg-background-alternative z-50", {
+      "animate-slide-up": animate
+    })}>
       <div className="text-foreground-alternative text-2xl">{progress}%</div>
     </div>
   );
