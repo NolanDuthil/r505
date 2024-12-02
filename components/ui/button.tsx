@@ -1,19 +1,15 @@
 import * as React from "react";
-import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "@/lib/utils";
-
 const buttonVariants = cva(
-  "",
+  "inline-flex items-center justify-center rounded-md font-medium transition-colors",
   {
     variants: {
       variant: {
-        default:
-          "",
+        default: "text-foreground",
       },
       size: {
-        default: "px-3 py-1.5 text-xs sm:px-4 sm:py-2 sm:text-base",
+        default: "px-4 py-2 text-base",
       },
     },
     defaultVariants: {
@@ -30,14 +26,32 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button";
+  ({ className, variant, size, asChild = false, children, ...props }, ref) => {
+    const Comp = asChild ? "span" : "button";
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={`${buttonVariants({ variant, size })} ${className}`}
         ref={ref}
         {...props}
-      />
+      >
+        {children}
+        <span className="ml-2 inline-flex items-center border-2 border-black justify-center w-6 h-6 text-foreground rounded-full">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            className="w-4 h-4"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </span>
+      </Comp>
     );
   }
 );

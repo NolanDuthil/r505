@@ -6,6 +6,7 @@
   --color-background-card: var(--background-card);
   --color-background-alternative: var(--background-alternative);
   --color-foreground-alternative: var(--foreground-alternative);
+  --color-background-bande: var(--background-bande);
 }
 
 /*
@@ -48,6 +49,7 @@
   --background: #fcf9ee;
   --background-alternative: #141414;
   --background-card: #e7d6c4;
+  --background-bande: #ddc92a;
 
   /* Color Foreground */
   --foreground: #171717;
@@ -57,17 +59,18 @@
   --quaternary: #141414;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: "Bebas Neue", sans-serif; */
+  font-family: "Poppins", sans-serif;
 }
 
 @keyframes slide-down {
@@ -88,6 +91,19 @@ body {
   }
 }
 
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 10s linear infinite;
+}
+
 .animate-slide-down {
   animation: slide-down 0.5s ease-out forwards;
 }
@@ -95,3 +111,12 @@ body {
 .animate-slide-up {
   animation: slide-up 0.5s ease-out forwards;
 }
+
+/* styles/globals.css */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.font-bebas-neue {
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+/* Ajoutez d'autres styles globaux ici */

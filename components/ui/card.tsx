@@ -9,9 +9,9 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ number, title, imageUrl }) => {
   return (
     <div className="flex flex-col max-w-48">
-    <div className="border border-2 border-black overflow-hidden">
+    <div className="border border-2 lg:w-[24rem] lg:h-[38rem] border-black overflow-hidden">
       {imageUrl && (
-        <div className="w-44 h-64 bg-cover bg-center" style={{ backgroundImage: `url(${imageUrl})` }}></div>
+        <div className="w-44 h-64 lg:w-[24rem] lg:h-[38rem] bg-cover bg-center" style={{ backgroundImage: `url(${imageUrl})` }}></div>
       )}
     </div>
     <div className="flex flex-row gap-8 items-center">
