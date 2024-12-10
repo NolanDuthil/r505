@@ -7,6 +7,7 @@
   --color-background-alternative: var(--background-alternative);
   --color-foreground-alternative: var(--foreground-alternative);
   --color-background-bande: var(--background-bande);
+  --text-size-mobile: var(--mobile-title);
 }
 
 /*
@@ -57,6 +58,9 @@
   --primary: #fcf9ee;
   --secondary: #ddc92a;
   --quaternary: #141414;
+
+  /* Text */
+  --mobile-title: '73px';
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -70,7 +74,7 @@ body {
   color: var(--foreground);
   background: var(--background);
   /* font-family: "Bebas Neue", sans-serif; */
-  font-family: "Poppins", sans-serif;
+  font-family: "Favorit", sans-serif;
 }
 
 @keyframes slide-down {

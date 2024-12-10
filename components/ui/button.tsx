@@ -1,5 +1,6 @@
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
+import { ArrowRightIcon }  from "@/components/ui/icons";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center rounded-md font-medium transition-colors",
@@ -9,7 +10,7 @@ const buttonVariants = cva(
         default: "text-foreground",
       },
       size: {
-        default: "px-4 py-2 text-base",
+        default: "px-4 py-2 text-xl",
       },
     },
     defaultVariants: {
@@ -35,21 +36,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {children}
-        <span className="ml-2 inline-flex items-center border-2 border-black justify-center w-6 h-6 text-foreground rounded-full">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            className="w-4 h-4"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
+        <span className="ml-2 inline-flex items-center border-2 border-black justify-center w-8 h-8 text-foreground rounded-full">
+          <ArrowRightIcon className="w-6" />
         </span>
       </Comp>
     );
