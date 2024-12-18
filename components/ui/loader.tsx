@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import classNames from 'classnames';
 
 export default function Loader() {
   const [loading, setLoading] = useState(true);
@@ -37,10 +36,13 @@ export default function Loader() {
   }, [progress]);
 
   return (
-    <div className={classNames("fixed top-0 left-0 w-full h-full flex items-center justify-center bg-background-alternative z-50", {
-      "animate-slide-up": animate
-    })}>
-      <div className="text-foreground-alternative text-2xl">{progress}%</div>
+    <div className={`fixed top-0 left-0 w-full h-full flex flex-col items-center justify-center bg-background-alternative z-50 ${animate ? 'animate-slide-up' : ''}`}>
+      <div className="flex flex-col items-center justify-center flex-grow">
+        <div className="text-foreground-alternative font-bold text-[73px]">{progress}%</div>
+      </div>
+      <h2 className="text-foreground-alternative text-xl mb-4 text-center">
+        2020 déplacé maison <br /> All rights reserved
+      </h2>
     </div>
   );
 }
